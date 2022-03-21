@@ -1,0 +1,53 @@
+##proto
+
+syntax = "proto3";
+
+message OrderMessage {
+  enum Status {
+    QUEUED = 0;
+    PROCESSING = 1;
+    COMPLETED = 2;
+    FAILED = 3;
+  }
+
+  enum Equipment {
+    KEYBOARD = 0;
+    MOUSE = 1;
+    WEBCAM = 2;
+    MONITOR = 3;
+  }
+
+  string id = 1;
+  string created_by = 2;
+  Status status = 3;
+  string created_at = 4;
+  repeated Equipment equipment = 5;
+}
+
+message Empty {
+
+}
+
+message OrderMessageList {
+  repeated OrderMessage orders = 1;
+}
+
+service OrderService {
+    rpc Create(OrderMessage) returns (OrderMessage);
+    rpc Get(Empty) returns (OrderMessageList);
+}
+
+
+
+##################
+
+syntax = "proto3";
+
+message PersonLocationEventMessage {
+  int32 userId = 1;
+  int32 latitude = 2;
+  int32 longitude = 3;
+}
+
+service ItemService {
+  rpc Create(PersonLocationEventMessage) returns (PersonLocationEventMessage);

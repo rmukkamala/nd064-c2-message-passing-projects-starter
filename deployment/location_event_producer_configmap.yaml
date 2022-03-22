@@ -4,4 +4,4 @@ data:
   KAFKA_URL: "kafka-release-0.kafka-release-headless.default.svc.cluster.local:9092"
   KAFKA_TOPIC: "event"
 metadata:
-  name: location_event_producer_map
+  name: location-event-producer-map

@@ -179,7 +179,7 @@ service ItemService {
 ## Docker Cmds
 
 # location_event_consumer 
-docker build -t rmukkamala/udaconnect_location_event_consumer:v1.0.0 .
+
 
 docker login
 docker push rmukkamala/udaconnect_location_event_consumer:v1.0.0
@@ -195,7 +195,8 @@ docker build -t rmukkamala/udaconnect_location_microservice:v1.0.0 .
 docker push rmukkamala/udaconnect_location_microservice:v1.0.0
 
 # connection_microservice
-docker build -t rmukkamala/udaconnect_connection_microservice:v1.0.0 .
+
+
 
 docker push rmukkamala/udaconnect_connection_microservice:v1.0.0
 

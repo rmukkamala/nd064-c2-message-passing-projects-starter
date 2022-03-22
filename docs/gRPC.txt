@@ -1,0 +1,16 @@
+
+### This is the proto message for grpc server
+## Please refer to the 'location_event_producer' module for more details
+## writer.py file can be used to send location data
+
+syntax = "proto3";
+
+message locationEventServiceMessage {
+  int32 userid = 1;
+  int32 latitude = 2;
+  int32 longitude = 3;
+}
+
+service eventService {
+  rpc Create(locationEventServiceMessage) returns (locationEventServiceMessage);
+}

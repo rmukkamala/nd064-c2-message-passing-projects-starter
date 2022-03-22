@@ -175,3 +175,83 @@ message locationEventServiceMessage {
 service ItemService {
   rpc Create(locationEventServiceMessage) returns (locationEventServiceMessage);
 }
+
+## Docker Cmds
+
+# location_event_consumer 
+docker build -t rmukkamala/udaconnect_location_event_consumer:v1.0.0 .
+
+docker login
+docker push rmukkamala/udaconnect_location_event_consumer:v1.0.0
+
+# location_event_producer
+docker build -t rmukkamala/udaconnect_location_event_producer:v1.0.0 .
+
+docker push rmukkamala/udaconnect_location_event_producer:v1.0.0
+
+# location_microservice
+docker build -t rmukkamala/udaconnect_location_microservice:v1.0.0 .
+
+docker push rmukkamala/udaconnect_location_microservice:v1.0.0
+
+# connection_microservice
+docker build -t rmukkamala/udaconnect_connection_microservice:v1.0.0 .
+
+docker push rmukkamala/udaconnect_connection_microservice:v1.0.0
+
+# person_microservice
+docker build -t rmukkamala/udaconnect_person_microservice:v1.0.0 .
+
+docker push rmukkamala/udaconnect_person_microservice:v1.0.0
+
+
+Example:
+# build the image
+docker build -t go-helloworld .
+
+# run the image
+docker run -d -p 6111:6111 go-helloworld
+# Access the application on: http://127.0.0.1:6111/ or http://localhost:6111/ or http://0.0.0.0:6111/
+
+# tag the image
+docker tag go-helloworld pixelpotato/go-helloworld:v1.0.0
+
+# login into DockerHub
+docker login
+
+# push the image
+docker push pixelpotato/go-helloworld:v1.0.0
+
+
+## Docker commands used to build the application 
+# TODO: insert the docker build command
+
+docker build -t rmukkamala/udaconnect_location_event_consumer:v1.0.0 .
+
+
+## Docker commands used to run the application
+# TODO: insert the docker run command
+docker run -d --name techtrendsv1.1.0 -p 7111:3111 rmukkamala/techtrends:v1.1.0
+
+## Docker commands used to get the application logs
+# TODO: insert the docker logs command
+docker logs edf03f248665
+
+
+############
+#location_event_producer and location_event_consumer microservices
+- The user locations are tracked from client mobiles and sent asynchronously to the Grpc server which also has the logic to act as a kafka producer.
+- The Grpc message passing technique is used here since a lot of location data may be sent and Grpc will reduce the latency and be faster.
+
+- The kafka is used to handle this traffic for pushing location data.  
+- location_event_consumer microservice acts as the producer and location_event_consumer microservice acts as the consumer which then saves the data inot the DB.DeprecationWarning
+
+- person microservice , connection microservice and location microservice are separated into independent microservices and use REST API to interact with the React Frontend Service.
+- These microservices can improve their efficiency by using caches as way of lookup service for faster responses.  
+
+############
+
+
+## kubectl cmds for deployment of yaml files
+
+

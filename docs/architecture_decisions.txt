@@ -1,0 +1,13 @@
+#################################
+
+#location_event_producer and location_event_consumer microservices
+- The user locations are tracked from client mobiles and sent asynchronously to the Grpc server which also has the logic to act as a kafka producer.
+- The Grpc message passing technique is used here since a lot of location data may be sent and Grpc will reduce the latency and be faster.
+
+- The kafka is used to handle this traffic for pushing location data.  
+- location_event_consumer microservice acts as the producer and location_event_consumer microservice acts as the consumer which then saves the data inot the DB.DeprecationWarning
+
+- person microservice , connection microservice and location microservice are separated into independent microservices and use REST API to interact with the React Frontend Service.
+- These microservices can improve their efficiency by using caches as way of lookup service for faster responses.  
+
+##################################

@@ -34,6 +34,7 @@ spec:
       - image: rmukkamala/udaconnect-location-event-producer:latest
         name: udaconnect-location-event-producer
         imagePullPolicy: Always
+        #imagePullPolicy: "IfNotPresent"
         env:
         - name: KAFKA_URL
           valueFrom:

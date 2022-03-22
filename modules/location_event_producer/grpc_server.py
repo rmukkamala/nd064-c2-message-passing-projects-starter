@@ -12,7 +12,8 @@ import events_pb2_grpc
 
 KAFKA_TOPIC_NAME = 'event'
 #KAFKA_SERVER = '127.0.0.1:9092'
-KAFKA_SERVER = 'kafka-service.default.svc.cluster.local:9092'
+#KAFKA_SERVER = 'kafka-service.default.svc.cluster.local:9092'
+KAFKA_SERVER = 'kafka-service:9092'
 
 producer = KafkaProducer(bootstrap_servers=KAFKA_SERVER)
 
@@ -35,6 +36,8 @@ class eventServicer(events_pb2_grpc.eventServiceServicer):
         return events_pb2.locationEventServiceMessage(**request_value)
 
 
+##sleep/wait
+time.sleep(25)
 # Initialize gRPC server
 server = grpc.server(futures.ThreadPoolExecutor(max_workers=2))
 events_pb2_grpc.add_eventServiceServicer_to_server(eventServicer(), server)

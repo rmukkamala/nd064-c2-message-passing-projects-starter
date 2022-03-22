@@ -33,16 +33,17 @@ spec:
       - image: rmukkamala/udaconnect-location-event-consumer:latest
         name: udaconnect-location-event-consumer
         imagePullPolicy: Always
+        #imagePullPolicy: "IfNotPresent"
         env:
         - name: KAFKA_URL
           valueFrom:
             configMapKeyRef:
-              name: person-location-event-map
+              name: location_event_consumer_map
               key: KAFKA_URL
         - name: KAFKA_TOPIC
           valueFrom:
             configMapKeyRef:
-              name: person-location-event-map
+              name: location_event_consumer_map
               key: KAFKA_TOPIC
         - name: PYTHONUNBUFFERED
           value: '0'

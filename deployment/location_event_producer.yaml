@@ -46,6 +46,4 @@ spec:
             configMapKeyRef:
               name: location-event-producer-map
               key: KAFKA_TOPIC
-        - name: PYTHONUNBUFFERED
-          value: '0'
       restartPolicy: Always

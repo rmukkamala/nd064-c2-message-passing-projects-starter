@@ -34,17 +34,4 @@ spec:
         name: udaconnect-location-event-consumer
         imagePullPolicy: Always
         #imagePullPolicy: "IfNotPresent"
-        env:
-        - name: KAFKA_URL
-          valueFrom:
-            configMapKeyRef:
-              name: location_event_consumer_map
-              key: KAFKA_URL
-        - name: KAFKA_TOPIC
-          valueFrom:
-            configMapKeyRef:
-              name: location_event_consumer_map
-              key: KAFKA_TOPIC
-        - name: PYTHONUNBUFFERED
-          value: '0'
       restartPolicy: Always

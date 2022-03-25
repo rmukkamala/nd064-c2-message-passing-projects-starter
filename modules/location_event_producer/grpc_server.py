@@ -13,7 +13,8 @@ import events_pb2_grpc
 KAFKA_TOPIC_NAME = 'event'
 #KAFKA_SERVER = '127.0.0.1:9092'
 #KAFKA_SERVER = 'kafka-service.default.svc.cluster.local:9092'
-KAFKA_SERVER = 'kafka-service:9092'
+KAFKA_SERVER = 'kafka.default.svc.cluster.local:9092'
+#KAFKA_SERVER = 'kafka-service:9092'
 
 producer = KafkaProducer(bootstrap_servers=KAFKA_SERVER)
 
